@@ -3,28 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="scripts/require.js"></script>
-<script>
-  require.config({
-    baseUrl: "/another/path",
-    paths: {
-        "some": "some/v1.0"
-    },
-    waitSeconds: 15
-  });
-  require( ["some/module", "my/module", "a.js", "b.js"],
-    function(someModule,    myModule) {
-        //This function will be called when all the dependencies
-        //listed above are loaded. Note that this function could
-        //be called before the page is loaded.
-        //This callback is optional.
-    }
-  );
-</script>
-    <script type="text/javascript" src="script.js"  src="require.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.3/require.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brain/0.6.3/brain.js"></script>
+    <script type="text/javascript">
+    var brain = require(['brain.js']);
+    var net = new brain.NeuralNetwork();
+
+    net.train([{input: [0, 0], output: [0]},
+               {input: [0, 1], output: [1]},
+               {input: [1, 0], output: [1]},
+               {input: [1, 1], output: [0]}]);
+
+    var output = net.run([1, 0]);  // [0.987]
+    console.log(output);
+    console.log(dsa);
+
+
+    </script>
+
 
   </head>
   <body>
+
 
   </body>
 </html>
